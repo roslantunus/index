@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Wifey ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            color: #fff8f1;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #674579 0%,
+                    #b75b76 35%,
+                    #f48c70 65%,
+                    #d77d69 100%
+                );
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px 45px;
+            position: relative;
+        }
+
+        /* SUNSET */
+
+        .sun {
+            position: fixed;
+            width: 185px;
+            height: 185px;
+            border-radius: 50%;
+
+            left: 50%;
+            top: 47%;
+
+            transform: translate(-50%, -50%);
+
+            background: #ffe9a7;
+
+            box-shadow:
+                0 0 75px 26px rgba(255, 221, 139, 0.42);
+
+            animation: sunPulse 4s ease-in-out infinite;
+        }
+
+        .ocean {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 43%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(44,79,113,.1),
+                    rgba(22,52,77,.82)
+                );
+
+            clip-path: polygon(
+                0 15%,
+                100% 8%,
+                100% 100%,
+                0 100%
+            );
+        }
+
+        .sand {
+            position: fixed;
+            left: -5%;
+            right: -5%;
+            bottom: -10%;
+
+            height: 31%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #e6ae79,
+                    #c77d68
+                );
+
+            border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+        }
+
+        /* STARS */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .stars span {
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #fff5d5;
+
+            opacity: .55;
+
+            animation: twinkle 2.5s infinite ease-in-out;
+        }
+
+        /* CARD */
+
+        .card {
+            width: min(720px, 100%);
+
+            padding: 30px 22px 25px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,.13);
+
+            border:
+                1px solid rgba(255,255,255,.20);
+
+            backdrop-filter: blur(13px);
+
+            border-radius: 32px;
+
+            box-shadow:
+                0 25px 70px rgba(55,20,45,.25);
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .small-title {
+            font-size: 11px;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+
+            opacity: .8;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+
+            font-size:
+                clamp(54px, 12vw, 88px);
+
+            line-height: .82;
+
+            margin: 15px 0;
+
+            text-shadow:
+                0 5px 22px rgba(56,23,48,.28);
+        }
+
+        .subtitle {
+            max-width: 570px;
+
+            margin: 0 auto 20px;
+
+            font-family: Georgia, serif;
+
+            font-size: 24px;
+
+            line-height: 1.2;
+        }
+
+        /* CAPYBARA */
+
+        .capybara-area {
+            height: 190px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .capybara {
+            width: 176px;
+            height: 112px;
+
+            background: #9a5f3e;
+
+            border-radius:
+                52% 48% 42% 44%;
+                position: relative;
+
+            filter:
+                drop-shadow(
+                    0 14px 12px
+                    rgba(51,22,28,.20)
+                );
+
+            animation:
+                floating 3.2s ease-in-out infinite;
+        }
+
+        .ear {
+            position: absolute;
+
+            width: 38px;
+            height: 28px;
+
+            top: -10px;
+
+            background: #8b5237;
+
+            border-radius: 50%;
+        }
+
+        .ear.left {
+            left: 10px;
+        }
+
+        .ear.right {
+            right: 10px;
+        }
+
+        .eye {
+            position: absolute;
+
+            width: 9px;
+            height: 9px;
+
+            top: 35px;
+
+            background: #251b1a;
+
+            border-radius: 50%;
+        }
+
+        .eye.left {
+            left: 47px;
+        }
+
+        .eye.right {
+            right: 47px;
+        }
+
+        .snout {
+            position: absolute;
+
+            width: 70px;
+            height: 42px;
+
+            left: 53px;
+            top: 48px;
+
+            background: #a96845;
+
+            border-radius: 48%;
+        }
+
+        .nose {
+            position: absolute;
+
+            width: 18px;
+            height: 10px;
+
+            left: 79px;
+            top: 55px;
+
+            background: #34211e;
+
+            border-radius: 50%;
+        }
+
+        .mouth {
+            position: absolute;
+
+            width: 26px;
+            height: 12px;
+
+            left: 76px;
+            top: 67px;
+
+            border-bottom:
+                3px solid #3b2520;
+
+            border-radius:
+                0 0 50% 50%;
+        }
+
+        .flower {
+            position: absolute;
+
+            right: -16px;
+            top: -30px;
+
+            font-size: 32px;
+        }
+
+        .capybara-text {
+            position: absolute;
+
+            bottom: -15px;
+
+            font-family: Georgia, serif;
+
+            font-size: 18px;
+        }
+
+        /* MESSAGE */
+
+        .message-box {
+            max-width: 590px;
+
+            margin: auto;
+
+            padding: 30px 20px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,250,244,.13);
+
+            border:
+                2px solid rgba(255,255,255,.20);
+
+            font-size: 15px;
+
+            line-height: 2.50;
+        }
+
+        .message-box strong {
+            font-size: 16px;
+        }
+
+        .message-title {
+            font-family: Georgia, serif;
+
+            font-size: 24px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 11px;
+
+            justify-content: center;
+
+            margin: 26px 0 10px;
+        }
+
+        button {
+            border: none;
+
+            border-radius: 999px;
+
+            padding: 14px 18px;
+
+            font:
+                bold 14px Arial;
+
+            color: #5a3046;
+
+            background: #fff4e9;
+
+            box-shadow:
+                0 8px 24px
+                rgba(58,27,46,.18);
+
+            cursor: pointer;
+
+            transition:
+                .2s transform,
+                .2s box-shadow;
+        }
+
+        button:hover {
+            transform:
+                translateY(-3px)
+                scale(1.02);
+
+            box-shadow:
+                0 12px 30px
+                rgba(58,27,46,.25);
+        }
+
+        button:active {
+            transform: scale(.95);
+        }
+
+        .primary {
+            background: #ffced0;
+        }
+
+        /* BUTTON RESPONSE */
+
+        #response {
+            min-height: 35px;
+
+            margin-top: 14px;
+
+            font-family: Georgia, serif;
+
+            font-size: 23px;
+
+            font-weight: bold;
+        }
+
+        .secret {
+            margin-top: 18px;
+
+            padding: 17px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.12);
+
+            font-family: Georgia, serif;
+
+            font-size: 21px;
+
+            animation:
+                appear .5s ease;
+        }
+
+        .footer {
+            margin-top: 20px;
+
+            font-size: 11px;opacity: .68;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes sunPulse {
+            50% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.06);
+
+                opacity: .93;
+            }
+        }
+
+        @keyframes floating {
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(1deg);
+            }
+        }
+
+        @keyframes twinkle {
+            50% {
+                opacity: .12;
+                transform: scale(.5);
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+
+        @media(max-width:520px) {
+
+            .card {
+                padding:
+                    24px 14px 20px;
+            }
+
+            .message-box {
+                font-size: 14px;
+            }
+
+            .buttons button {
+                flex: 1 1 42%;
+            }
+
+            .subtitle {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="sun"></div>
+    <div class="ocean"></div>
+    <div class="sand"></div>
+
+    <div class="stars" id="stars"></div>
+
+    <section class="card">
+
+        <div class="small-title">
+            Website ini khas untuk Theresia Angela
+        </div>
+
+        <h1>
+            I'm Sorry,<br>
+            Wifey ♡
+        </h1>
+
+        <p class="subtitle">
+            Daripada hubby yang bau kentut,
+            khas untuk wifey yang ako sayang ❤️
+        </p>
+
+
+        <!-- CAPYBARA -->
+
+        <div class="capybara-area">
+
+            <div class="capybara">
+
+                <span class="ear left"></span>
+                <span class="ear right"></span>
+
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+
+                <span class="snout"></span>
+
+                <span class="nose"></span>
+
+                <span class="mouth"></span>
+
+                <span class="flower">
+                    🌼
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- APOLOGY -->
+
+        <div class="message-box">
+
+            <div class="message-title">
+                Hello wifey, ako yang cumil. ❤️
+            </div>
+
+            <br>
+
+            Ako minta maaf syg,
+            ako ada buat salah semalam.
+
+            Ako sedar kesalahan ako
+            buat kaau kecewa dan marah
+            dengan ako.
+
+            Emmmm.... ako bina website ini
+            untuk ambik hati kaau
+            dan minta maaf dengan kaau. Jangan marah-marah lagi okay? Nanti wifey ako banyak uban. hekhek.
+
+            <br><br>
+
+            <strong>
+                Hubby akan sentiasa bersama
+                dengan syg, jaga syg,
+                dan sentiasa berada
+                dalam hati syg.
+            </strong>
+
+            <br><br>
+
+            You are my princess,
+            wifey ako. ❤️
+
+            Sorry kalau website ini simple saja.
+            Tekan button di bawah ikut urutan ya cumil🥺
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="hug()">
+
+                1 🫂 Tekan untuk peluk
+
+            </button>
+
+
+            <button
+                onclick="capybara()">
+
+                2 🦫 Panggil capybara
+
+            </button>
+
+
+            <button
+                onclick="sorry()">
+
+                3 💌 Ako minta maaf
+
+            </button>
+
+
+            <button
+                onclick="secretMessage()">
+
+                4 ✨ Jangan tekan…
+
+            </button>
+
+        </div>
+
+
+        <div id="response">
+
+            Sentuh mana-mana sahaja
+            untuk keluarkan sedikit magic ✨
+
+        </div>
+
+
+        <div id="secret"></div>
+
+        <div class="footer">
+
+            dibuat oleh hubby
+            yang sayang wifey sangat-sangat ♡
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="designmainpage.js"></script>
+
+</body>
+</html>
